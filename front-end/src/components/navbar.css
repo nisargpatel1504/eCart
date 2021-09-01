@@ -1,0 +1,78 @@
+.header {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  background-color: #3a3839;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  font-family: "Ubuntu", sans-serif;
+}
+.header__text {
+  font-family: "Ubuntu", sans-serif;
+  color: #f1f1f1;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+.header__text :hover {
+  background-color: #f1f1f1;
+  color: #ff5733;
+}
+
+.header-logo {
+  width: 100px;
+  object-fit: contain;
+  margin: 0 20px;
+  margin-top: 18px;
+}
+.header-search {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  border-radius: 24px;
+}
+.header-search-input {
+  height: 30px;
+  padding: 10px;
+  border: none;
+  width: 100%;
+}
+.header-searchIcon {
+  padding: 6px;
+  height: 30px !important;
+  background-color: #009176;
+  color: #f1f1f1;
+}
+.header__nav {
+  display: flex;
+
+  justify-content: space-evenly;
+}
+
+.header-option {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+  margin-right: 10px;
+  color: white;
+}
+
+.header-optionLine1 {
+  font-size: 10px;
+}
+
+.header-optionLine2 {
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.header-basketCount {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.header-optionBasket {
+  display: flex;
+  align-items: center;
+  color: white;
+}

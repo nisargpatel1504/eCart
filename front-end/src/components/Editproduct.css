@@ -1,0 +1,12 @@
+.editproduct {
+  margin-top: 50px;
+}
+.form {
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  align-items: center;
+}
