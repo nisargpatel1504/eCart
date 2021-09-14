@@ -1,11 +1,19 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import './checkout.css'
 import Subtotal from './Subtotal';
 import CheckoutItems from './CheckoutItems';
 import { useStateValue } from '../Stateprovider';
 
+
+// const cartFromLocalStorage = JSON.parse(localStorage.getItem('basket') || '[]')
 const Checkout = () =>  {
     const [{basket},dispatch] = useStateValue();   
+
+    useEffect(()=>{
+        localStorage.setItem("basket",JSON.stringify(basket));
+    } ,[basket]);
+
+
     return (
         <div className='checkout'>
             <div className='checkout__left'>

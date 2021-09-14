@@ -1,21 +1,12 @@
 import React,{useState,useEffect} from 'react'
 import './Editproduct.css';
 import axios from '../axios.js';
-import DeleteIcon from '@material-ui/icons/Delete';
-import EditIcon from '@material-ui/icons/Edit';
-import Showproducts from './Showproducts';
+import { useHistory } from 'react-router-dom';
+
 
 function Editproduct() {
     const [product, setProduct ] = useState([]); 
-
-
-    // useEffect(() => {
-    //     async function fetchData(){
-    //          const req = await axios.get("/");
-    //          setProduct(req.data)
-    //     } 
-    //      fetchData();    
-    //  }, []); 
+    const history = useHistory();
 
     const handleChange = (e) => {
         const {name , value} = e.target
@@ -28,12 +19,17 @@ function Editproduct() {
             e.preventDefault();
             const req = await axios.post("/",product)
             alert("Product has been added");
+            history.push("./showProduct");
+    }
+
+    const updateProduct = async() =>{
+
     }
 
     
     return (
       <div className="editproduct">
-                {console.log("Product",product)}
+                
                     <form onSubmit={addProduct} className="form">
                         <div className="form-group">
                             <lable>Title:</lable>
@@ -55,42 +51,10 @@ function Editproduct() {
                             <input value={product.image} name="image" onChange={handleChange} className="form-control" required></input>
 
                         </div>
-                        <button className="btn btn-primary">Click</button>
-                    </form>
+                        <button className="btn btn-primary">Add product</button>
 
-           <Showproducts />
-           {/* <table class="table table-striped table-dark">
-                    <thead>
-                        <tr>
-                        <th scope="col">Id</th>
-                        <th scope="col">Title</th>
-                        <th scope="col">Price</th>
-                        <th scope="col">Rating</th>
-                        <th scope="col">Image</th>
-                        <th scope="col">Delete</th>
-                        <th scope="col">Edit</th>
-                        </tr>
-                    </thead>
-                    { product&&product.map((item)=>(
-                                   
-                        <tbody>
-                        <tr>
-                        <td scope="row">{item._id}</td>
-                        <td>{item.title}</td>
-                        <td>${item.price}</td>
-                        <td>{item.rating}</td>
-                        <td>{item.image}</td>
-                        <td>
-                            <DeleteIcon /></td>
-                        <td>
-                            <EditIcon />
-                        </td>
-                        </tr>
-                        </tbody>
-                    )) }
-                    
-            </table>
- */}
+                    </form>
+                    <button className="btn btn-primary" onClick={updateProduct}>Update Product</button>
 
         </div>
     )

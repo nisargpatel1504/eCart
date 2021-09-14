@@ -5,10 +5,12 @@ import './App.css';
 import {BrowserRouter as Router , Switch , Route} from "react-router-dom";
 import Navbar from './components/Navbar';
 import Login from './components/Login';
-import subtotal from './components/Subtotal';
 import Home from './components/Home';
 import  Checkout from './components/Checkout';
+import Showproducts from './components/Showproducts';
 import Editproduct from './components/Editproduct';
+import Payment from './components/Payment';
+
 function App() {
   const [product , setProduct] = useState([]);
 
@@ -29,7 +31,10 @@ function App() {
                     <Route path="/Login">
                       <Login/>
                     </Route>
-                    <Route path="/editProduct">
+                    <Route path="/showProduct">
+                      <Showproducts  />
+                    </Route>
+                    <Route path="/Editproduct">
                       <Editproduct  />
                     </Route>
                     
@@ -38,8 +43,10 @@ function App() {
                       <Checkout />
                     </Route>
 
+                    
+
                     <Route path="/payment">
-                        <subtotal />
+                      <Payment/>
                     </Route>
 
                       <Route path="/">

@@ -3,7 +3,7 @@ import './product.css';
 import { Link, useHistory } from "react-router-dom";
 import {useStateValue} from '../Stateprovider';
 
-function Product({title , price , image  , rating }) {
+function Product({key,title , price , image  , rating }) {
     const [ {basket,user} , dispatch ] = useStateValue();
     const history = useHistory();
     
@@ -12,12 +12,15 @@ function Product({title , price , image  , rating }) {
             dispatch({
                 type: 'ADD_TO_BASKET',
                 item:{
+                    id:key,
                     title:title,
                     image:image,
                     price:price,
                     rating:rating,
                 },
             }) : history.push("/Login");
+            
+                
     }
     
     return (

@@ -1,6 +1,14 @@
 .editproduct {
-  margin-top: 50px;
+  margin: auto;
+  width: 30%;
+  border: 3px solid black;
+  padding: 10px;
+  margin-top: 20px;
+  border-radius: 50px;
+  border-style: solid;
+  height: 50%;
 }
+
 .form {
   max-width: 500px;
   display: flex;

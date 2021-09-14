@@ -6,6 +6,7 @@ const PORT = process.env.PORT || 5000
 const mongoose = require('mongoose');
 const Ecart  = require('./Model/EcartDb.js');
 const User = require('./Model/UserDb.js');
+const Cart = require('./Model/CartDb.js');
 
 
 app.use(cors());
@@ -129,9 +130,31 @@ app.post('/register',(req,res) => {
     
 });
  
+//Checkout Cart
+app.get("/Checkout/:id",(req,res) => {
 
+    const {id} = req.params;
+    Cart.findById(id,(err,data) => {
+        if(err){
+            res.status(500).send(err)
+        } 
+        else{
+            res.status(201).send(data)
+        }
+    })
+})
 
-
+app.post('/Checkout',(req,res) => {
+    const cart = req.body;
+    Cart.create(cart, (err,data) => {
+        if(err){
+            res.status(500).send(err)
+        }
+        else{
+            res.status(201).send(data)
+        }
+    })
+});
 
 app.listen(PORT,()=>{
     console.log(`server is running on ${PORT}`);

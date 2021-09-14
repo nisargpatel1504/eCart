@@ -16,13 +16,20 @@ function Home() {
          fetchData();    
      }, []);
 
+    const checkAdmin = () =>{
+        if(user.email==="admin@gmail.com"){
+               return  <a  href="showProduct">Edit Product</a>     
+        }
+    }
      
     
      return (
         
     <div className="home">
 
-             <a  href="editProduct">Edit Product</a>
+        {checkAdmin()}
+        
+        
             
         <div className="home__container">
             <div className="home__row">
@@ -30,7 +37,7 @@ function Home() {
                                 product.map((item)=>(
                                     <Product 
                                     
-                                    key= {item.title}
+                                    key= {item._id}
                                     title={item.title}
                                     price={item.price}
                                     image={item.image}
@@ -42,6 +49,7 @@ function Home() {
             
             </div>
         </div>
+         
     </div>
     )
 }

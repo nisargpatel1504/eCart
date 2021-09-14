@@ -2,6 +2,9 @@ import React,{useEffect,useState} from 'react';
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 import axios from '../axios.js';
+import { Link } from 'react-router-dom';
+import './showproduct.css'
+import Editproduct from './Editproduct.js';
 
 function Showproducts() {
     const [product, setProduct ] = useState([]); 
@@ -13,11 +16,13 @@ function Showproducts() {
              setProduct(req.data)
         } 
          fetchData();    
-     }, []);    
+     }, [product]);    
 
 
-     const updateProduct = (id) =>{
-         
+     const editProduct = (id,e) =>{
+         e.preventDefault();
+         alert("Edit");
+               
      }
 
      const deleteRow = async(id, e) =>{  
@@ -29,6 +34,10 @@ function Showproducts() {
       
     return (
         <div>
+            <Link to={'/Editproduct'}>
+                <button className="btnclick"> Click Me </button>
+            </Link>
+       
              <table class="table table-striped table-dark">
                     <thead>
                         <tr>
@@ -53,7 +62,7 @@ function Showproducts() {
                         <td>
                             <DeleteIcon onClick={(e) => deleteRow(item._id, e)}/></td>
                         <td>
-                            <EditIcon  />
+                            <EditIcon onClick={(e) => editProduct(item._id, e)} />
                         </td>
                         </tr>
                         </tbody>
