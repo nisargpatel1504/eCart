@@ -8,39 +8,28 @@ function Login() {
     const [ user1,setUser ] = useState([]);
     const [ {user} , dispatch ] = useStateValue();
     const history = useHistory(); 
-    
-
-    useEffect(() => {
-        const localdata = window.localStorage.getItem("user");
-        setUser(JSON.parse(localdata));
-      },[]);
-
-    useEffect(()=>{
-      window.localStorage.setItem("user",JSON.stringify(user));
-    });
-
+   
     const handleChange = e => {
         const {name , value} = e.target
          setUser({
              ...user1,
              [name] : value,
-             
          })
      }
      
      
      const signIn = async (e) =>{
-        e.preventDefault();
+        e.preventDefault(); 
         try {
-            const req = await axios.post("/Login",user1); 
+            const req = await axios.post("/api/users",user1); 
             
             if(req.status === 200){
                 dispatch({
                     type: 'SET_USER',
                    user : req.data.user
                 }) 
-                
-                history.push("/");
+                localStorage.setItem('user', req.data.user)
+                history.push("/api/products");
             }
             else{
                 alert(req.data.message);
@@ -55,15 +44,25 @@ function Login() {
 
          const { email , password } = user1
          if(email && password){
-            const req = await axios.post("/register",user1)
+            const req = await axios.post("/api/users/register",user1)
             console.log(req.data);
             alert(`Registered :  ${req.data.email}` );
-            history.push("/");
+            history.push("/api/products");
          }
          else{
              alert("invalid input");
          }
      }
+
+
+     useEffect(() => {
+        const loggedInUser = localStorage.getItem("user1");
+        if (loggedInUser) {
+          const foundUser = JSON.parse(loggedInUser);
+          setUser(foundUser);
+        }
+      }, []);
+
      return (
         <div className='login'>
             {console.log("user",user1)}

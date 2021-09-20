@@ -28,28 +28,28 @@ function App() {
     <div className="App">
           <Navbar/>
             <Switch>
-                    <Route path="/Login">
+                    <Route path="/api/users">
                       <Login/>
                     </Route>
-                    <Route path="/showProduct">
+                    <Route path="/api/showProduct">
                       <Showproducts  />
                     </Route>
-                    <Route path="/Editproduct">
+                    <Route path="/api/Editproduct">
                       <Editproduct  />
                     </Route>
                     
 
-                    <Route path="/Checkout">
+                    <Route path="/api/Checkout">
                       <Checkout />
                     </Route>
 
                     
 
-                    <Route path="/payment">
+                    <Route path="/api/payment">
                       <Payment/>
                     </Route>
 
-                      <Route path="/">
+                      <Route path="/api/products">
                       <Home />
                     </Route>
             </Switch>

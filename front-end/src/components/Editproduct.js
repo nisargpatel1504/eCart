@@ -17,7 +17,7 @@ function Editproduct() {
     }
      const addProduct = async (e) => {
             e.preventDefault();
-            const req = await axios.post("/",product)
+            const req = await axios.post("/api/products",product)
             alert("Product has been added");
             history.push("./showProduct");
     }

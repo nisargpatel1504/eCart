@@ -5,7 +5,7 @@ import CheckoutItems from './CheckoutItems';
 import { useStateValue } from '../Stateprovider';
 
 
-// const cartFromLocalStorage = JSON.parse(localStorage.getItem('basket') || '[]')
+
 const Checkout = () =>  {
     const [{basket},dispatch] = useStateValue();   
 
@@ -30,7 +30,6 @@ const Checkout = () =>  {
                             rating={item.rating}
             />
           ))}
-                
             </div>
             </div>
             <div className='checkout__right'>

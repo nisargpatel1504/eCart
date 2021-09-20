@@ -8,29 +8,27 @@ import {useStateValue} from '../Stateprovider';
 function Home() {
     const [product, setProduct ] = useState([]);
     const [ {user} , dispatch ] = useStateValue();
+
     useEffect(() => {
         async function fetchData(){
-             const req = await axios.get("/");
+             const req = await axios.get("/api/products");
              setProduct(req.data)
+             console.log(req.data)
         } 
          fetchData();    
      }, []);
 
     const checkAdmin = () =>{
         if(user.email==="admin@gmail.com"){
-               return  <a  href="showProduct">Edit Product</a>     
+               return  <a  href="/api/showProduct">Edit Product</a>     
         }
     }
-     
-    
      return (
-        
     <div className="home">
-
-        {checkAdmin()}
+        {console.log(product)}
+     {checkAdmin()
         
-        
-            
+        }
         <div className="home__container">
             <div className="home__row">
                         {

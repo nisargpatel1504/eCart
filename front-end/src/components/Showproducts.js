@@ -2,17 +2,17 @@ import React,{useEffect,useState} from 'react';
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 import axios from '../axios.js';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import './showproduct.css'
 import Editproduct from './Editproduct.js';
 
 function Showproducts() {
     const [product, setProduct ] = useState([]); 
-        
+     const history = useHistory();   
       useEffect(() => {
           
         async function fetchData(){
-             const req = await axios.get("/");
+             const req = await axios.get("/api/products");
              setProduct(req.data)
         } 
          fetchData();    
@@ -21,20 +21,20 @@ function Showproducts() {
 
      const editProduct = (id,e) =>{
          e.preventDefault();
-         alert("Edit");
+         history.push('/Editproduct')
                
      }
 
      const deleteRow = async(id, e) =>{  
                 e.preventDefault();
-                await axios.delete(`/${id}`)   
+                await axios.delete(`api/products/${id}`)   
                 alert(`Product ${id}Deleted`)
         }
         
       
     return (
         <div>
-            <Link to={'/Editproduct'}>
+            <Link to={'/api/Editproduct'}>
                 <button className="btnclick"> Click Me </button>
             </Link>
        

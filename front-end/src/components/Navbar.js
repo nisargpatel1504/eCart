@@ -8,11 +8,18 @@ import {useStateValue} from '../Stateprovider';
 function Navbar() {
     const [{basket,user},dispatch] = useStateValue();  
     
+    const handleAuth = (e) =>{
+        
+        // if(user){
+        //     user.email = null
+        // }
+    }
+
     return (
         
         <div className='header'>
        
-        <Link to='/'>
+        <Link to='/api/products'>
         <strong className="header__text"> eCart</strong>
         </Link>
         <div className='header-search'>
@@ -21,18 +28,20 @@ function Navbar() {
         </div>
         <div className='header-nav'></div>
             
-            {
-            !user ? <Link to="./Login">
-            <div  className='header-option'>   
-                <span className='header-optionLine1'>Hello</span>
-                <span className='header-optionLine2'>Guest</span>
+            {/* {
+            !user ? <Link to="./Login"> */}
+            <Link to={ !user ? '/api/users' : '/api/products'}>
+            <div onClick={handleAuth} className='header-option'>   
+                <span className='header-optionLine1'>Hello {!user ? 'Guest' : user.email}</span>
+                <span className='header-optionLine2'>{user ? 'Sign Out' : 'Sign In'}</span>
              </div>
             </Link>
-            :<div  className='header-option'>   
-                <span className='header-optionLine1'>Hello </span>
-                <span className='header-optionLine2'>{user.email}</span>
-             </div>
-             }
+          
+            {/* // :<div  className='header-option'>   
+            //     <span className='header-optionLine1'>Hello</span>
+            //     <span className='header-optionLine2'>{user.email}</span>
+            //  </div>
+            //  } */}
            
 
             <div className='header-option'>

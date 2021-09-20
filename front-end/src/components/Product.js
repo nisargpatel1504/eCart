@@ -18,12 +18,9 @@ function Product({key,title , price , image  , rating }) {
                     price:price,
                     rating:rating,
                 },
-            }) : history.push("/Login");
-            
-                
-    }
-    
-    return (
+            }) : history.push("/api/users");         
+    }    
+  return (
         <div className='product'>
                 
             <div className='product__info'>
@@ -43,5 +40,4 @@ function Product({key,title , price , image  , rating }) {
         </div>
         )
 }
-
 export default Product
