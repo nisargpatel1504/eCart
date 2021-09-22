@@ -52,9 +52,9 @@ function Editproduct() {
 
                         </div>
                         <button className="btn btn-primary">Add product</button>
-
+                        <button className="btn btn-primary btnUpdate" onClick={updateProduct}>Update Product</button>
                     </form>
-                    <button className="btn btn-primary" onClick={updateProduct}>Update Product</button>
+                       
 
         </div>
     )

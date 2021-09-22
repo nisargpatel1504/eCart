@@ -10,9 +10,7 @@ function Navbar() {
     
     const handleAuth = (e) =>{
         
-        // if(user){
-        //     user.email = null
-        // }
+        window.location.reload(false)
     }
 
     return (
@@ -33,7 +31,7 @@ function Navbar() {
             <Link to={ !user ? '/api/users' : '/api/products'}>
             <div onClick={handleAuth} className='header-option'>   
                 <span className='header-optionLine1'>Hello {!user ? 'Guest' : user.email}</span>
-                <span className='header-optionLine2'>{user ? 'Sign Out' : 'Sign In'}</span>
+                <span className='header-optionLine2' ></span>
              </div>
             </Link>
           

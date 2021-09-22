@@ -13,7 +13,7 @@ function Home() {
         async function fetchData(){
              const req = await axios.get("/api/products");
              setProduct(req.data)
-             console.log(req.data)
+             
         } 
          fetchData();    
      }, []);
@@ -25,7 +25,7 @@ function Home() {
     }
      return (
     <div className="home">
-        {console.log(product)}
+       
      {checkAdmin()
         
         }

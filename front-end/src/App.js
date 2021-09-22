@@ -12,15 +12,6 @@ import Editproduct from './components/Editproduct';
 import Payment from './components/Payment';
 
 function App() {
-  const [product , setProduct] = useState([]);
-
-  useEffect(() => {
-    const getProduct =async () => {
-      const res = await axios.get("http://localhost:5000/")
-      setProduct(res.data)
-    }
-    getProduct();
-  },[]);
 
   return (
     

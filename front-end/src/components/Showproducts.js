@@ -21,7 +21,7 @@ function Showproducts() {
 
      const editProduct = (id,e) =>{
          e.preventDefault();
-         history.push('/Editproduct')
+         history.push('/api/Editproduct')
                
      }
 

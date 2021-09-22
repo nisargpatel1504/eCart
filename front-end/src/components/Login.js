@@ -55,13 +55,13 @@ function Login() {
      }
 
 
-     useEffect(() => {
-        const loggedInUser = localStorage.getItem("user1");
-        if (loggedInUser) {
-          const foundUser = JSON.parse(loggedInUser);
-          setUser(foundUser);
-        }
-      }, []);
+    //  useEffect(() => {
+    //     const loggedInUser = localStorage.getItem("user1");
+    //     if (loggedInUser) {
+    //       const foundUser = JSON.parse(loggedInUser);
+    //       setUser(foundUser);
+    //     }
+    //   }, []);
 
      return (
         <div className='login'>
