@@ -7,3 +7,12 @@
   border-radius: 10px;
   border-style: solid;
 }
+
+@media screen and (max-width: 800px) {
+  .table {
+    width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
+  }
+  .tbody {
+    width: 100%;
+  }
+}
