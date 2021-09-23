@@ -36,5 +36,7 @@
 @media screen and (max-width: 800px) {
   .checkoutProduct {
     width: 90%;
+    display: flex;
+    flex-direction: column;
   }
 }
