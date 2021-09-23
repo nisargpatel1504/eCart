@@ -33,7 +33,7 @@
   font-weight: 800;
 }
 
-@media screen and (min-width: 800px) {
+@media screen and (max-width: 800px) {
   .checkoutProduct {
     width: 90%;
   }
