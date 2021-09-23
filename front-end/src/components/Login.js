@@ -67,7 +67,7 @@ function Login() {
         <div className='login'>
             {console.log("user",user1)}
             <Link to='/'>
-                <strong className="logo__text">E-cart </strong>
+                <strong className="logo__text">eCart </strong>
             </Link>
             <div className='login__container'>
                 <h1>Sign-in</h1>
@@ -85,7 +85,7 @@ function Login() {
                     By signing-in you agree to the E-cart Conditions of Use & Sale. Please
                     see our Privacy Notice, our Cookies Notice and our Interest-Based Ads Notice.
                 </p>
-                <button className='login__registerButton' onClick={register}>Create your E-cart Account</button>
+                <button className='login__registerButton' onClick={register}>Create your eCart Account</button>
             </div>
         </div>
     )
