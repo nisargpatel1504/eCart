@@ -18,7 +18,7 @@ function Product({key,title , price , image  , rating }) {
                     price:price,
                     rating:rating,
                 },
-            }) : history.push("/api/users");         
+            }) : history.push("/users");         
     }    
   return (
         <div className='product'>

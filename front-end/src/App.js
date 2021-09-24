@@ -19,29 +19,29 @@ function App() {
     <div className="App">
           <Navbar/>
             <Switch>
-                    <Route path="/api/users">
+                    <Route path="/users">
                       <Login/>
                     </Route>
-                    <Route path="/api/showProduct">
+                    <Route path="/showProduct">
                       <Showproducts  />
                     </Route>
-                    <Route path="/api/Editproduct">
+                    <Route path="/Editproduct">
                       <Editproduct  />
                     </Route>
                     
 
-                    <Route path="/api/Checkout">
+                    <Route path="/Checkout">
                       <Checkout />
                     </Route>
 
                     
 
-                    <Route path="/api/payment">
+                    <Route path="/payment">
                       <Payment/>
                     </Route>
 
-                      <Route path="/api/products">
-                      <Home />
+                      <Route path="/" component={Home}>
+                      {/* <Home /> */}
                     </Route>
             </Switch>
       

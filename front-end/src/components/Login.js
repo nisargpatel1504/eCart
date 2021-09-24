@@ -29,7 +29,7 @@ function Login() {
                    user : req.data.user
                 }) 
                 localStorage.setItem('user', req.data.user)
-                history.push("/api/products");
+                history.push("/");
             }
             else{
                 alert(req.data.message);
@@ -40,14 +40,14 @@ function Login() {
          }
      }
 
-     const register =  async() => {
-
+     const register =  async(e) => {
+        e.preventDefault();
          const { email , password } = user1
          if(email && password){
             const req = await axios.post("/api/users/register",user1)
             console.log(req.data);
             alert(`Registered :  ${req.data.email}` );
-            history.push("/api/products");
+            history.push("/users");
          }
          else{
              alert("invalid input");

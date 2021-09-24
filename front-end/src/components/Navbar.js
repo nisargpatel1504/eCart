@@ -17,7 +17,7 @@ function Navbar() {
         
         <div className='header'>
        
-        <Link to='/api/products'>
+        <Link to='/'>
         <strong className="header__text"> eCart</strong>
         </Link>
         <div className='header-search'>
@@ -28,7 +28,7 @@ function Navbar() {
             
             {/* {
             !user ? <Link to="./Login"> */}
-            <Link to={ !user ? '/api/users' : '/api/products'}>
+            <Link to={ !user ? '/users' : '/api/products'}>
             <div onClick={handleAuth} className='header-option'>   
                 <span className='header-optionLine1'>Hello {!user ? 'Guest' : user.email}</span>
                 <span className='header-optionLine2' ></span>

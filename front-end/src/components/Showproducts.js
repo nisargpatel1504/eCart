@@ -21,7 +21,7 @@ function Showproducts() {
 
      const editProduct = (id,e) =>{
          e.preventDefault();
-         history.push('/api/Editproduct')
+         history.push('/Editproduct')
                
      }
 
@@ -34,7 +34,7 @@ function Showproducts() {
       
     return (
         <div>
-            <Link to={'/api/Editproduct'}>
+            <Link to={'/Editproduct'}>
                 <button className="btnclick"> Click Me </button>
             </Link>
        

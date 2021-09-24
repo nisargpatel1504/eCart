@@ -20,7 +20,7 @@ function Home() {
 
     const checkAdmin = () =>{
         if(user.email==="admin@gmail.com"){
-               return  <a  href="/api/showProduct">Edit Product</a>     
+               return  <a  href="/showProduct">Edit Product</a>     
         }
     }
      return (

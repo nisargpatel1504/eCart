@@ -4,8 +4,6 @@ import Subtotal from './Subtotal';
 import CheckoutItems from './CheckoutItems';
 import { useStateValue } from '../Stateprovider';
 
-
-
 const Checkout = () =>  {
     const [{basket},dispatch] = useStateValue();   
 
@@ -13,6 +11,7 @@ const Checkout = () =>  {
         localStorage.setItem("basket",JSON.stringify(basket));
     } ,[basket]);
 
+    
 
     return (
         <div className='checkout'>

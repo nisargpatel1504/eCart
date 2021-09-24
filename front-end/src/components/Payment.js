@@ -16,7 +16,7 @@ function Payment() {
         <div className='payment__container'>
             <h2>
                 Checkout(
-                    <Link to='/api/checkout'> {basket?.length } items</Link>
+                    <Link to='/checkout'> {basket?.length } items</Link>
                     )
             </h2>
             <div className="payment__section">
