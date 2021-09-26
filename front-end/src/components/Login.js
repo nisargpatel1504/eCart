@@ -22,19 +22,28 @@ function Login() {
         e.preventDefault(); 
         try {
             const req = await axios.post("/api/users",user1); 
-            
+            const { email, password } = req?.data?.user;
             if(req.status === 200){
+            
                 dispatch({
                     type: 'SET_USER',
-                   user : req.data.user
-                }) 
-                localStorage.setItem('user', req.data.user)
+                   user : req?.data?.user,
+                }); 
+                localStorage.setItem(
+                    "user",
+                    JSON.stringify({
+                      email,
+                      password,
+                    })
+                  );
+                  
                 history.push("/");
             }
             else{
                 alert(req.data.message);
             }
         } catch (error) {
+            localStorage.removeItem("user");
             alert("Please enter valid email and password");
             console.log(error);
          }
@@ -55,17 +64,10 @@ function Login() {
      }
 
 
-    //  useEffect(() => {
-    //     const loggedInUser = localStorage.getItem("user1");
-    //     if (loggedInUser) {
-    //       const foundUser = JSON.parse(loggedInUser);
-    //       setUser(foundUser);
-    //     }
-    //   }, []);
 
      return (
         <div className='login'>
-            {console.log("user",user1)}
+            
             <Link to='/'>
                 <strong className="logo__text">eCart </strong>
             </Link>

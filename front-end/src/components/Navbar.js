@@ -1,22 +1,34 @@
-import React,{useState} from 'react';
+import React,{useEffect, useState} from 'react';
 import  './navbar.css';
 import SearchIcon from "@material-ui/icons/Search";
 import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import {useStateValue} from '../Stateprovider';
 
 function Navbar() {
     const [{basket,user},dispatch] = useStateValue();  
+    const history = useHistory();
     
     const handleAuth = (e) =>{
         
-        window.location.reload(false)
+        if (window.confirm("You sure want to logout")) {
+            localStorage.removeItem("user");
+            return dispatch({
+              type: "SET_USER",
+              user: null,
+            });
+          }
+        // if(user){
+        //     dispatch({
+        //         type : "SET_USER",
+        //         user:null,
+        //     })
+        // }
+          history.push('/');
     }
 
     return (
-        
         <div className='header'>
-       
         <Link to='/'>
         <strong className="header__text"> eCart</strong>
         </Link>
@@ -25,22 +37,20 @@ function Navbar() {
             <SearchIcon className="header-searchIcon" />
         </div>
         <div className='header-nav'></div>
-            
-            {/* {
-            !user ? <Link to="./Login"> */}
-            <Link to={ !user ? '/users' : '/api/products'}>
-            <div onClick={handleAuth} className='header-option'>   
-                <span className='header-optionLine1'>Hello {!user ? 'Guest' : user.email}</span>
-                <span className='header-optionLine2' ></span>
-             </div>
-            </Link>
-          
-            {/* // :<div  className='header-option'>   
-            //     <span className='header-optionLine1'>Hello</span>
-            //     <span className='header-optionLine2'>{user.email}</span>
-            //  </div>
-            //  } */}
-           
+        {
+            !user ? (
+                <Link to="./users">
+                <div className="header-option">
+                    <span className="header-optionLine1">Hello</span>
+                    <span className="header-optionLine2">Guest</span>
+                </div>
+                </Link>
+            ) : (
+                <div className="header-option pointer" onClick={handleAuth}>
+                <span className="header-optionLine1">Hello</span>
+                <span className="header-optionLine2">{user.email}</span>
+                </div>
+            )}
 
             <div className='header-option'>
             <span className='header-optionLine1'>Returns</span>

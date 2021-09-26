@@ -8,7 +8,8 @@ function Product({key,title , price , image  , rating }) {
     const history = useHistory();
     
     const addToBasket = () => {
-            Object.keys(user)?.length ? 
+            // Object.keys(user)?.length ? 
+            user?
             dispatch({
                 type: 'ADD_TO_BASKET',
                 item:{

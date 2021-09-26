@@ -3,32 +3,30 @@ import './home.css';
 import Product from './Product.js';
 import axios from '../axios.js';
 import {useStateValue} from '../Stateprovider';
-
+import { Link } from 'react-router-dom';
 
 function Home() {
     const [product, setProduct ] = useState([]);
     const [ {user} , dispatch ] = useStateValue();
-
     useEffect(() => {
         async function fetchData(){
              const req = await axios.get("/api/products");
-             setProduct(req.data)
-             
+             setProduct(req.data)   
         } 
          fetchData();    
-     }, []);
+     }, [{user:null}]);
 
-    const checkAdmin = () =>{
-        if(user.email==="admin@gmail.com"){
-               return  <a  href="/showProduct">Edit Product</a>     
+    const checkAdmin = () => {
+        
+        if(user&&user.email === "admin@gmail.com"){
+               return "Edit Product"
         }
     }
      return (
     <div className="home">
-       
-     {checkAdmin()
-        
-        }
+       <Link to="/showProduct">
+     {  checkAdmin()
+        }</Link>
         <div className="home__container">
             <div className="home__row">
                         {
