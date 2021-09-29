@@ -81,8 +81,3 @@
     width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
   }
 }
-@media screen and (min-width: 400px) {
-  .header {
-    width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
-  }
-}
