@@ -80,4 +80,7 @@
   .header {
     width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
   }
+  .header-optionLine1 {
+    width: 50px;
+  }
 }
