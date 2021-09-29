@@ -26,8 +26,7 @@ function Navbar() {
         // }
           history.push('/');
     }
-    let str = user.email;
-    str = str.substring(0,str.indexOf("@") +0);
+    
     
     return (
         <div className='header'>
@@ -50,7 +49,7 @@ function Navbar() {
             ) : (
                 <div className="header-option pointer" onClick={handleAuth}>
                 <span className="header-optionLine1">Hello</span>
-                <span className="header-optionLine2">{str}</span>
+                <span className="header-optionLine2">{user.email}</span>
                 </div>
             )}
 
