@@ -17,8 +17,7 @@ function Home() {
      }, [{user:null}]);
 
     const checkAdmin = () => {
-        
-        if(user&&user.email === "admin@gmail.com"){
+     if(user&&user.email === "admin@gmail.com"){
                return "Edit Product"
         }
     }

@@ -32,9 +32,6 @@ app.get('/',(req,res)=>{
         }
     })
 });
-
-
-
  
 app.post('/',(req,res) => {
     const dbCard = req.body;
@@ -105,7 +102,6 @@ app.post('/Login',(req,res) => {
         }
     })
 });
-
 
 app.post('/register',(req,res) => {
    
