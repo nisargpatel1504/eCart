@@ -28,8 +28,6 @@ function App() {
                     <Route path="/Editproduct">
                       <Editproduct  />
                     </Route>
-                    
-
                     <Route path="/Checkout">
                       <Checkout />
                     </Route>

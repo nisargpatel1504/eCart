@@ -8,7 +8,6 @@ const Ecart  = require('./Model/EcartDb.js');
 const User = require('./Model/UserDb.js');
 const Cart = require('./Model/CartDb.js');
 
-
 app.use(cors());
 app.use(express.json({extended: false}));
 
@@ -21,7 +20,7 @@ mongoose.connect(ConnectionURL,{
 })
 
 
-
+ 
 app.get('/',(req,res)=>{
     Ecart.find((err,data) => {
         if(err){
